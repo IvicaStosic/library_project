@@ -3,22 +3,32 @@
       <li>
         <a href="/">Library</a>
       </li>
+      <% if(isAuthenticated) { %>
       <li>
         <a href="/admin/add_book">Add Book</a>
       </li>
       <li>
         <a href="/admin/editor">Edit Book</a>
       </li>
-      <li>
-        <a href="/login">Login</a>
-      </li>
-      <li>
-        <a href="/signup">Signup</a>
-      </li>
-      <li>
-        <a href="/logout">Logout</a>
-      </li>
+      <% } %>
     </ul>
+      <ul>
+        <% if(!isAuthenticated) { %>
+        <li>
+          <a href="/login">Login</a>
+        </li>
+        <li>
+          <a href="/signup">Signup</a>
+        </li>
+        <% } else { %>
+        <li>
+          <form action="/logout" method="POST">
+            <button type="submit">Logout</button>
+          </form>
+        </li>
+        <% } %>
+      </ul>
+    
   
 </nav>
 

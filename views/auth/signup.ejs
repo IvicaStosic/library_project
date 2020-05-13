@@ -1,0 +1,42 @@
+<%- include('../includes/head.ejs') %>
+<body>
+  <%- include('../includes/navigation.ejs') %>
+  <main>
+    <h1>Signup</h1>
+    <form action="/signup" method="POST">
+      <div>
+        <label for="firstName">Firstname:</label>
+        <input type="text" name="firstName" id="firstName">
+      </div>
+      <div>
+        <label for="lastName">Lastname:</label>
+        <input type="text" name="lastName" id="lastName">
+      </div>
+      <div>
+        <label for="dateOfBirth">Date of birth:</label>
+        <input type="text" name="dateOfBirth" id="dateOfBirth">
+      </div>
+      <div>
+        <label for="gender">Gender:</label>
+        <input type="text" name="gender" id="gender">
+      </div>
+        <div>
+            <label for="email">E-mail:</label>
+            <input type="text" name="email" id="email">
+        </div>
+        <div>
+          <label for="username">Username:</label>
+          <input type="text" name="username" id="username">
+      </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <div>
+          <label for="confirmPassword">Confirm Password:</label>
+          <input type="password" name="confirmPassword" id="confirmPassword">
+      </div>
+        <button type="submit">Register</button>
+    </form>    
+  </main>
+  <%- include('../includes/end.ejs') %>
