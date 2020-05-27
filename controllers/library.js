@@ -1,16 +1,14 @@
-const Book = require('../models/book');
+const Book = require("../models/book");
 
 exports.getBooks = (req, res, next) => {
-  Book
-    .find()
-    .then(books => {
-      console.log(books)
-      res.render('library_open/library', {
+  Book.find()
+    .then((books) => {
+      console.log(books);
+      res.render("library_open/library", {
         books: books,
-        pageTitle: 'Library',
-        path: '/',
-        isAuthenticated: req.session.isLoggedIn
-      })
+        pageTitle: "Library",
+        path: "/",
+      });
     })
-    .catch(err => console.log(err))
+    .catch((err) => console.log(err));
 };

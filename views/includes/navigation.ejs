@@ -1,57 +1,68 @@
-<nav>
-    <ul>
-      <li>
+<div class="backdrop"></div>
+<header class="header">
+  <button id="sideMenuToggle">Menu</button>
+  <nav class="desktopResolutionNav">
+    <ul class="headerLinkList">
+      <li class="headerLink">
         <a href="/">Library</a>
       </li>
       <% if(isAuthenticated) { %>
-      <li>
+      <li class="headerLink">
         <a href="/admin/add_book">Add Book</a>
       </li>
-      <li>
+      <li class="headerLink">
         <a href="/admin/editor">Edit Book</a>
       </li>
       <% } %>
     </ul>
-      <ul>
-        <% if(!isAuthenticated) { %>
-        <li>
-          <a href="/login">Login</a>
-        </li>
-        <li>
-          <a href="/signup">Signup</a>
-        </li>
-        <% } else { %>
-        <li>
-          <form action="/logout" method="POST">
-            <button type="submit">Logout</button>
-          </form>
-        </li>
-        <% } %>
-      </ul>
-    
-  
-</nav>
-
-<nav class="mobile">
-    <div>
-      <ul>
-        <li>
-          <a href="">Library</a>
-        </li>
-        <li>
-          <a href="">Add Book</a>
-        </li>
-        <li>
-          <a href="">Edit Book</a>
-        </li>
-        <li>
-          <a href="">Login</a>
-        </li>
-        <li>
-          <a href="">Signup</a>
-        </li>
-        <li>
-          <a href="">Logout</a>
-        </li>
-      </ul>  
+    <ul class="headerLinkList">
+      <% if(!isAuthenticated) { %>
+      <li class="headerLink">
+        <a href="/login">Login</a>
+      </li>
+      <li class="headerLink">
+        <a href="/signup">Signup</a>
+      </li>
+      <% } else { %>
+      <li class="headerLink">
+        <form action="/logout" method="POST">
+          <button type="submit">Logout</button>
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        </form>
+      </li>
+      <% } %>
+    </ul>
   </nav>
+</header>
+<nav class="mobileRes">
+  <ul class="mobileLinkList">
+    <li class="mobileLink">
+      <a href="/">Library</a>
+    </li>
+    <% if(isAuthenticated) { %>
+    <li class="mobileLink">
+      <a href="/admin/add_book">Add Book</a>
+    </li>
+    <li class="mobileLink">
+      <a href="/admin/editor">Edit Book</a>
+    </li>
+    <% } %>
+  </ul>
+  <ul class="mobileLinkList">
+    <% if(!isAuthenticated) { %>
+    <li class="mobileLink">
+      <a href="/login">Login</a>
+    </li>
+    <li class="mobileLink">
+      <a href="/signup">Signup</a>
+    </li>
+    <% } else { %>
+    <li class="mobileLink">
+      <form action="/logout" method="POST">
+        <button type="submit">Logout</button>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+      </form>
+    </li>
+    <% } %>
+  </ul>
+</nav>

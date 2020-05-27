@@ -2,25 +2,39 @@
 <body>
 <%- include('../includes/navigation.ejs') %>
 <main>
+    <% if(errorMessage) { %>
+        <div class="user-message user-message--error">
+            <%= errorMessage %>
+        </div>
+        <% } %>
 <form action="/admin/<% if(editing) {%>edit_book<% } else{ %>add_book<% } %>" method="POST">
         <div>
             <label for="title">Title:</label>
-            <input type="text" name="title" id="title" value="<% if(editing){ %><%= book.title %><% } %>">
+            <input
+            class="<%= validationErrors.find(e =>e.param === 'title') %>"
+            type="text" name="title" id="title"
+             value="<% if(editing || hasError){ %><%= book.title %><% } %>">
         </div>
         <div>
             <label for="author">Author:</label>
-            <input type="text" name="author" id="author" value="<% if(editing){ %><%= book.author %><% } %>">
+            <input
+            class="<%= validationErrors.find(e =>e.param === 'author') %>"
+             type="text" name="author" id="author" value="<% if(editing || hasError){ %><%= book.author %><% } %>">
         </div>
         <div>
             <label for="description">Description:</label>
-            <textarea name="description" id="description" cols="30" rows="10">
-                <% if(editing){ %><%= book.description %><% } %>
+            <textarea
+            class="<%= validationErrors.find(e =>e.param === 'description') %>"
+             name="description" id="description" cols="30" rows="10">
+                <% if(editing || hasError){ %><%= book.description %><% } %>
             </textarea>
         </div>
         <% if(editing) { %>
             <input type="hidden" value="<%= book._id %>" name="bookId"> 
         <% } %>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
         <button type="submit"><% if(editing){ %>Edit Book<% } else { %>Add Book<% } %></button>
+        
     </form>
 </main>   
 <%- include('../includes/end.ejs') %>

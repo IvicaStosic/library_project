@@ -2,41 +2,68 @@
 <body>
   <%- include('../includes/navigation.ejs') %>
   <main>
+    <% if (errorMessage) { %>
+    <div class=""><%= errorMessage %></div>
+    <% } %>
     <h1>Signup</h1>
     <form action="/signup" method="POST">
       <div>
         <label for="firstName">Firstname:</label>
-        <input type="text" name="firstName" id="firstName">
+        <input 
+        class="<%= validationErrors.find(e => e.param === 'firstName') ? 'invalid' : '' %>"
+        type="text" name="firstName" id="firstName" value="<%= oldInput.firstName %>"/>
       </div>
       <div>
         <label for="lastName">Lastname:</label>
-        <input type="text" name="lastName" id="lastName">
+        <input 
+        class=""
+         type="text" name="lastName" id="lastName" value="<%= oldInput.lastName %>"/>
       </div>
       <div>
-        <label for="dateOfBirth">Date of birth:</label>
-        <input type="text" name="dateOfBirth" id="dateOfBirth">
+        <label for="birthday">Date of birth:</label>
+        <input type="date" name="birthday" id="birthday" />
       </div>
       <div>
-        <label for="gender">Gender:</label>
-        <input type="text" name="gender" id="gender">
+        <label for="gender">Male:</label>
+        <input type="radio" name="gender" id="male" value="male" />
+        <label for="gender">Female:</label>
+        <input type="radio" name="gender" id="female" value="female" />
+        <label for="gender">Other:</label>
+        <input type="radio" name="gender" id="other" value="other" />
       </div>
-        <div>
-            <label for="email">E-mail:</label>
-            <input type="text" name="email" id="email">
-        </div>
-        <div>
-          <label for="username">Username:</label>
-          <input type="text" name="username" id="username">
+      <div>
+        <label for="location">Location:</label>
+        <input 
+        class=""
+         type="text" name="location" id="location" value="<%= oldInput.location %>"/>
       </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password">
-        </div>
-        <div>
-          <label for="confirmPassword">Confirm Password:</label>
-          <input type="password" name="confirmPassword" id="confirmPassword">
+      <div>
+        <label for="email">E-mail:</label>
+        <input 
+        class=""
+         type="text" name="email" id="email" value="<%= oldInput.email %>" />
       </div>
-        <button type="submit">Register</button>
-    </form>    
+      <div>
+        <label for="username">Username:</label>
+        <input 
+        class=""
+         type="text" name="username" id="username" value="<%= oldInput.username%>" />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input 
+        class=""
+         type="password" name="password" id="password" value="<%= oldInput.password %>" />
+      </div>
+      <div>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input 
+        class=""
+         type="password" name="confirmPassword" id="confirmPassword" value="<%= oldInput.confirmPassword %>" />
+      </div>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+      <button type="submit">Register</button>
+    </form>
   </main>
   <%- include('../includes/end.ejs') %>
+
