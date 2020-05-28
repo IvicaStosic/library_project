@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif; }
+
+main {
+  padding: 1rem;
+  margin: auto; }
+
+form {
+  display: inline; }
+
+header {
+  width: 100%;
+  height: 3rem;
+  background-color: #005e53;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center; }
+  header .desktopResolutionNav {
+    height: 100%;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: space-between; }
+    header .desktopResolutionNav .headerLinkList {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex; }
+      header .desktopResolutionNav .headerLinkList .headerLink {
+        margin: 0 1rem;
+        padding: 0; }
+        header .desktopResolutionNav .headerLinkList .headerLink a,
+        header .desktopResolutionNav .headerLinkList .headerLink button {
+          text-decoration: none;
+          font: inherit;
+          background: transparent;
+          color: white;
+          border: none;
+          cursor: pointer; }
+        header .desktopResolutionNav .headerLinkList .headerLink a:hover, header .desktopResolutionNav .headerLinkList .headerLink a:active, header .desktopResolutionNav .headerLinkList .headerLink a.active {
+          color: #ffff33; }
+        header .desktopResolutionNav .headerLinkList .headerLink button:hover, header .desktopResolutionNav .headerLinkList .headerLink button:active {
+          color: #ffff33; }
+
+.mobileRes {
+  width: 30rem;
+  height: 100vh;
+  max-width: 80%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: white;
+  z-index: 100;
+  padding: 2rem;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out; }
+  .mobileRes.open {
+    transform: translateX(0); }
+  .mobileRes .mobileLinkList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; }
+    .mobileRes .mobileLinkList .mobileLink {
+      margin: 1rem;
+      padding: 0; }
+    .mobileRes .mobileLinkList a,
+    .mobileRes .mobileLinkList button {
+      font: inherit;
+      text-decoration: none;
+      color: black;
+      font-size: 1.7rem;
+      padding: 1rem;
+      background: transparent;
+      border: none;
+      cursor: pointer; }
+    .mobileRes .mobileLinkList a:hover, .mobileRes .mobileLinkList a:active, .mobileRes .mobileLinkList a.active {
+      color: white;
+      background-color: #005e53; }
+    .mobileRes .mobileLinkList button:hover, .mobileRes .mobileLinkList button:active {
+      color: white;
+      background-color: #005e53; }
+
+#sideMenuToggle {
+  border: 1px solid white;
+  font: inherit;
+  padding: 0.5rem;
+  display: block;
+  background: transparent;
+  color: #f8edd7;
+  cursor: pointer; }
+  #sideMenuToggle:focus {
+    outline: none; }
+  #sideMenuToggle:active, #sideMenuToggle:hover {
+    color: #ffff33;
+    border-color: #ffff33; }
+
+.backdrop {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none; }
+
+.btn {
+  font: inherit;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  border: 1px solid #006952;
+  border-radius: 3px;
+  color: #075d53;
+  background: white;
+  cursor: pointer; }
+
+.libraryBooks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch; }
+  .libraryBooks .card {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+  .libraryBooks .libraryBook .cardHeader {
+    padding: 1rem; }
+    .libraryBooks .libraryBook .cardHeader .bookTitle {
+      margin: 0;
+      width: 100%;
+      text-align: center;
+      color: white; }
+  .libraryBooks .libraryBook .cardContent {
+    padding: 1rem; }
+  .libraryBooks .libraryBook .cardActions {
+    padding: 1rem;
+    text-align: center; }
+
+@media (min-width: 768px) {
+  header .desktopResolutionNav {
+    display: flex; }
+  #sideMenuToggle {
+    display: none; } }
