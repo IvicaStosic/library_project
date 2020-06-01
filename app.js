@@ -11,7 +11,7 @@ const errorController = require("./controllers/error");
 const User = require("./models/user");
 
 const MONGODB_URI =
-  "mongodb+srv://IvicaStosic:rIVOZqcqUtVbas2W@library-lbzor.mongodb.net/library";
+  "mongodb+srv://$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$.mongodb.net/library";
 const app = express();
 const store = new MongoDBStore({
   uri: MONGODB_URI,
