@@ -180,7 +180,7 @@ exports.postSignup = (req, res, next) => {
         to: email,
         from: "library.project@test.com",
         subject: "Registration successful",
-        html: "<h1>Wellcome to library</h1>",
+        html: `<h1>Wellcome to the library ${firstName}</h1>`,
       });
     })
     .catch((err) => console.log(err));
