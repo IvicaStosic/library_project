@@ -26,7 +26,7 @@
     "nodemailer": "^6.4.6"
   },
   "devDependencies": {
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "nodemon": "^2.0.3"
   }
 }
